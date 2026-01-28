@@ -48,6 +48,26 @@ app.post('/subscribe', (req, res) => {
     });
 });
 
+app.post('/contact', (req, res) => {
+    const { name, email, message } = req.body;
+
+    if (!name || !email || !message) {
+        return res.status(400).json({ success: false, message: 'All fields are required' });
+    }
+
+    if (!isValidEmail(email)) {
+        return res.status(400).json({ success: false, message: 'Invalid email format' });
+    }
+
+    // In a real app, you would save this to a database or send an email
+    console.log('New Contact Message:', { name, email, message });
+
+    return res.status(200).json({ 
+        success: true, 
+        message: 'Message sent successfully!' 
+    });
+});
+
 // Start server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
