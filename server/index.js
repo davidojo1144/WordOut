@@ -3,10 +3,13 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:5173', 'https://word-out-three.vercel.app'],
+    credentials: true
+}));
 app.use(bodyParser.json());
 
 // In-memory store for subscribers
