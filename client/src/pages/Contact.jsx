@@ -46,13 +46,13 @@ const Contact = () => {
   };
 
   return (
-    <div className="py-16 bg-white">
+    <div className="py-16 bg-white dark:bg-gray-900 transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-2xl">
         <motion.h1 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl font-bold text-center mb-8 text-gray-800"
+          className="text-4xl font-bold text-center mb-8 text-gray-800 dark:text-white"
         >
           Contact Us
         </motion.h1>
@@ -60,7 +60,7 @@ const Contact = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-center text-gray-600 mb-12"
+          className="text-center text-gray-600 dark:text-gray-300 mb-12"
         >
           Have a question or want to work together? Fill out the form below.
         </motion.p>
@@ -73,9 +73,9 @@ const Contact = () => {
           onSubmit={handleSubmit}
         >
           <div>
-            <label className="block text-gray-700 font-bold mb-2" htmlFor="name">Name</label>
+            <label className="block text-gray-700 dark:text-gray-200 font-bold mb-2" htmlFor="name">Name</label>
             <input 
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:border-blue-500"
               id="name" 
               type="text" 
               placeholder="Your Name" 
@@ -85,9 +85,9 @@ const Contact = () => {
             />
           </div>
           <div>
-            <label className="block text-gray-700 font-bold mb-2" htmlFor="email">Email</label>
+            <label className="block text-gray-700 dark:text-gray-200 font-bold mb-2" htmlFor="email">Email</label>
             <input 
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:border-blue-500"
               id="email" 
               type="email" 
               placeholder="your@email.com" 
@@ -97,9 +97,9 @@ const Contact = () => {
             />
           </div>
           <div>
-            <label className="block text-gray-700 font-bold mb-2" htmlFor="message">Message</label>
+            <label className="block text-gray-700 dark:text-gray-200 font-bold mb-2" htmlFor="message">Message</label>
             <textarea 
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500 h-32"
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white focus:outline-none focus:border-blue-500 h-32"
               id="message" 
               placeholder="How can we help you?"
               value={formData.message}

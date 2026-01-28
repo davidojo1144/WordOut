@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <div className="bg-blue-600 text-white py-20">
+    <div className="bg-blue-600 dark:bg-blue-800 text-white py-20 transition-colors duration-300">
       <div className="container mx-auto px-6 text-center">
         <motion.h1 
           initial={{ opacity: 0, y: -20 }}
@@ -29,7 +29,7 @@ const Hero = () => {
         >
           <Link 
             to="/contact" 
-            className="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition duration-300"
+            className="inline-block bg-white text-blue-600 dark:bg-gray-900 dark:text-blue-400 font-bold py-3 px-8 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300"
           >
             Get Started
           </Link>

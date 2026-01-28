@@ -38,7 +38,7 @@ const CTA = () => {
   };
 
   return (
-    <div className="py-20 bg-blue-800 text-white">
+    <div className="py-20 bg-blue-800 dark:bg-blue-900 text-white transition-colors duration-300">
       <div className="container mx-auto px-6 text-center">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}

@@ -12,8 +12,9 @@ app.use(cors({
 }));
 app.use(bodyParser.json());
 
-// In-memory store for subscribers
+// In-memory store for subscribers and messages
 const subscribers = [];
+const messages = [];
 
 // Helper to validate email
 const isValidEmail = (email) => {
@@ -21,9 +22,38 @@ const isValidEmail = (email) => {
     return re.test(String(email).toLowerCase());
 };
 
+// Simple Admin Auth Middleware
+const ADMIN_PASSWORD = 'secret-admin-password'; // In production, use env var
+const authenticateAdmin = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    if (authHeader === ADMIN_PASSWORD) {
+        next();
+    } else {
+        res.status(401).json({ success: false, message: 'Unauthorized' });
+    }
+};
+
 // Routes
 app.get('/', (req, res) => {
     res.send('WordOut API is running');
+});
+
+// Admin Routes
+app.get('/admin/subscribers', authenticateAdmin, (req, res) => {
+    res.json({ success: true, subscribers });
+});
+
+app.get('/admin/messages', authenticateAdmin, (req, res) => {
+    res.json({ success: true, messages });
+});
+
+app.post('/admin/login', (req, res) => {
+    const { password } = req.body;
+    if (password === ADMIN_PASSWORD) {
+        res.json({ success: true, token: ADMIN_PASSWORD });
+    } else {
+        res.status(401).json({ success: false, message: 'Invalid password' });
+    }
 });
 
 app.post('/subscribe', (req, res) => {
@@ -63,7 +93,9 @@ app.post('/contact', (req, res) => {
     }
 
     // In a real app, you would save this to a database or send an email
-    console.log('New Contact Message:', { name, email, message });
+    const newMessage = { id: Date.now(), name, email, message, date: new Date() };
+    messages.push(newMessage);
+    console.log('New Contact Message:', newMessage);
 
     return res.status(200).json({ 
         success: true, 
