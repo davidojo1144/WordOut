@@ -1,51 +1,77 @@
-# WordOut - Full Stack Developer Practical Test
+# WordOut - Digital Agency Platform
 
-## Project Overview
+A modern, full-stack web application for a digital agency offering marketing and automation services. Built with React, Node.js, and modern UI tools.
 
-This repository contains the solution for the Full Stack Developer Practical Test. The project consists of a frontend built with React and Vite, and a backend built with Node.js and Express.
+**Live Demo:**
+- **Frontend:** [https://word-out-three.vercel.app/](https://word-out-three.vercel.app/)
+- **Backend:** [https://wordout-backend.onrender.com](https://wordout-backend.onrender.com)
 
-### Part 1: Website Build (Agency Skill)
+## 🚀 Features
 
-A 1-2 page website for a fictional digital agency offering marketing and automation services.
-- **Pages**: Homepage, Contact page
-- **Features**: Hero section, Services section, Call-to-action, Mobile responsiveness
-- **Tech Stack**: React, Vite, Tailwind CSS
+### Frontend (Client)
+- **Modern UI/UX**: Built with **React** and **Tailwind CSS** for a responsive and clean design.
+- **Dark Mode 🌙**: Fully supported light and dark themes with a smooth toggle switch.
+- **Animations ✨**: Engaging entry and hover animations using **Framer Motion**.
+- **Toast Notifications 🍞**: Real-time feedback for user actions using **React Hot Toast**.
+- **Admin Dashboard 🕵️‍♂️**: A protected area to view form submissions and subscribers.
+- **Interactive Forms**: Functional Contact and Newsletter Subscription forms.
 
-### Part 2: Full Stack Logic (Product Skill)
+### Backend (Server)
+- **REST API**: Built with **Node.js** and **Express**.
+- **Secure Admin Routes**: Protected endpoints for viewing data (Subscribers & Messages).
+- **Data Handling**: In-memory storage for form submissions (Contact & Newsletter).
+- **CORS Configured**: Securely connected to the production frontend.
 
-A basic REST API with a subscription feature.
-- **Endpoint**: `POST /subscribe`
-- **Functionality**: Accepts email, validates format, checks for duplicates, and stores in an in-memory store.
-- **Tech Stack**: Node.js, Express
+## 🛠️ Tech Stack
 
-## Part 3: Short Explanation
-
-### What tools did you use?
-- **Frontend**: React, Vite, Tailwind CSS, React Router DOM
+- **Frontend**: React, Vite, Tailwind CSS, Framer Motion, React Router DOM, React Hot Toast
 - **Backend**: Node.js, Express, CORS, Body-parser
-- **Version Control**: Git
+- **Deployment**: Vercel (Frontend), Render (Backend)
 
-### How comfortable are you using the chosen stack?
-I am very comfortable with this stack. React and Node.js are my daily drivers for full-stack development. Tailwind CSS allows for rapid UI development, and Vite provides an excellent developer experience with fast build times.
+## 📂 Project Structure
 
-### What would you improve with more time?
-- **Database**: Replace the in-memory store with a real database like MongoDB or PostgreSQL for data persistence.
-- **Testing**: Add unit and integration tests using Jest or Vitest and React Testing Library.
-- **Validation**: Implement more robust server-side validation using a library like Joi or Zod.
-- **UI/UX**: Add more animations and interactive elements to enhance the user experience.
-- **Error Handling**: Implement a centralized error handling mechanism for the backend.
-- **Environment Variables**: Use `.env` files to manage configuration and sensitive data.
+```
+WordOut/
+├── client/                 # React Frontend
+│   ├── src/
+│   │   ├── components/     # Reusable UI components (Hero, Navbar, etc.)
+│   │   ├── context/        # Global state (ThemeContext)
+│   │   ├── pages/          # Page components (Home, Contact, Admin)
+│   │   └── ...
+│   └── ...
+└── server/                 # Node.js Backend
+    ├── index.js            # Main server file with API routes
+    └── ...
+```
 
-## Getting Started
+## 🔐 Admin Access
 
-### Backend
-1. Navigate to the `server` directory: `cd server`
-2. Install dependencies: `npm install`
-3. Start the server: `node index.js`
-   - The server runs on `http://localhost:3000`
+To access the admin dashboard in the live demo or locally:
+1. Navigate to `/admin/login`
+2. Use the password: `secret-admin-password`
 
-### Frontend
-1. Navigate to the `client` directory: `cd client`
-2. Install dependencies: `npm install`
-3. Start the development server: `npm run dev`
-   - The application runs on `http://localhost:5173`
+## 🏃‍♂️ Getting Started Locally
+
+### Prerequisites
+- Node.js installed
+
+### 1. Setup Backend
+```bash
+cd server
+npm install
+node index.js
+# Server runs on http://localhost:3000
+```
+
+### 2. Setup Frontend
+```bash
+cd client
+npm install
+npm run dev
+# App runs on http://localhost:5173
+```
+
+## 🔮 Future Improvements
+- **Database**: Integrate MongoDB for persistent data storage.
+- **Authentication**: Implement JWT-based auth for more secure admin access.
+- **Testing**: Add unit and integration tests.
